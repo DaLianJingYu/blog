@@ -30,6 +30,7 @@ class IndexView(ListView):
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
+    paginate_by = 10
 
 
 """
@@ -90,7 +91,7 @@ class PostDetailView(DetailView):
         self.object.increase_views()
 
         # 视图必须返回一个 HttpResponse 对象
-        return response
+         return response
 
     def get_object(self, queryset=None):
         # 覆写 get_object 方法的目的是因为需要对 post 的 body 值进行渲染
